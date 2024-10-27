@@ -7,17 +7,18 @@
     <%-- <asp:ScriptManager ID="ScriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager> --%>
 
     <!-- ZADANIE 1: UpdatePanel, UpdateMode="Conditional" -->
-    <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Conditional">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
-            <asp:Label ID="Label" runat="server" Text="Aktualny czas: "></asp:Label>
-            <asp:Button ID="Button" runat="server" Text="Aktualizuj czas" OnClick="Button_Click" />
+            <asp:Label ID="Label1" runat="server" Text="Aktualny czas: "></asp:Label>
+            <asp:Button ID="Button1" runat="server" Text="Aktualizuj czas" OnClick="Button1_Click" />
+            <asp:Button ID="Button2" runat="server" Text="Aktualizacja obu paneli" OnClick="Button2_Click" />
         </ContentTemplate>
     </asp:UpdatePanel>
 
     <!-- ZADANIE 2: Second UpdatePanel with Label2, ForeColor set to Red, and Trigger for Button2 -->
     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
-            <asp:Label ID="Label2" runat="server" Text="Aktualizacja obu paneli." ForeColor="Red"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Aktualizacja obu paneli: " ForeColor="Red"></asp:Label>
         </ContentTemplate>
         <Triggers>
             <asp:AsyncPostBackTrigger ControlID="Button2" EventName="Click" />

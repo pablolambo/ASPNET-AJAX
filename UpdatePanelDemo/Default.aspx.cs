@@ -14,15 +14,15 @@ public partial class _Default : Page
     }
 
     // ZADANIE 1:
-    protected void Button_Click(object sender, EventArgs e)
+    protected void Button1_Click(object sender, EventArgs e)
     {
-        Label.Text = "Aktualny czas: " + DateTime.Now.ToLongTimeString();
+        Label1.Text = DateTime.Now.ToLongTimeString();
     }
 
     // ZADANIE 2:
     protected void Button2_Click(object sender, EventArgs e)
     {
-        Label.Text = DateTime.Now.ToLongTimeString();
+        Label1.Text = DateTime.Now.ToLongTimeString();
         Label2.Text = DateTime.Now.ToLongTimeString();
     }
 }
