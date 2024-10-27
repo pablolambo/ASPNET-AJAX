@@ -3,8 +3,15 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <!-- ScriptManager -->
-    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
+    <asp:ScriptManager ID="ScriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
 
+    <!-- UpdatePanel, UpdateMode="Conditional" -->
+    <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:Label ID="Label" runat="server" Text="Aktualny czas: "></asp:Label>
+            <asp:Button ID="Button" runat="server" Text="Aktualizuj czas" OnClick="Button_Click" />
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
     <div class="jumbotron">
         <h1>ASP.NET</h1>
