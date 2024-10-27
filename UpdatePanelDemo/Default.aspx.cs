@@ -13,9 +13,16 @@ public partial class _Default : Page
 
     }
 
-    // CodeBehind
+    // ZADANIE 1:
     protected void Button_Click(object sender, EventArgs e)
     {
         Label.Text = "Aktualny czas: " + DateTime.Now.ToLongTimeString();
+    }
+
+    // ZADANIE 2:
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Label.Text = DateTime.Now.ToLongTimeString();
+        Label2.Text = DateTime.Now.ToLongTimeString();
     }
 }

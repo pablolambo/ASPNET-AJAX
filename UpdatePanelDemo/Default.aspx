@@ -3,14 +3,25 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <!-- ScriptManager -->
-    <asp:ScriptManager ID="ScriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
+    <%-- It is already defined in Site.master file --%>
+    <%-- <asp:ScriptManager ID="ScriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager> --%>
 
-    <!-- UpdatePanel, UpdateMode="Conditional" -->
+    <!-- ZADANIE 1: UpdatePanel, UpdateMode="Conditional" -->
     <asp:UpdatePanel ID="UpdatePanel" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <asp:Label ID="Label" runat="server" Text="Aktualny czas: "></asp:Label>
             <asp:Button ID="Button" runat="server" Text="Aktualizuj czas" OnClick="Button_Click" />
         </ContentTemplate>
+    </asp:UpdatePanel>
+
+    <!-- ZADANIE 2: Second UpdatePanel with Label2, ForeColor set to Red, and Trigger for Button2 -->
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:Label ID="Label2" runat="server" Text="Aktualizacja obu paneli." ForeColor="Red"></asp:Label>
+        </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="Button2" EventName="Click" />
+        </Triggers>
     </asp:UpdatePanel>
 
     <div class="jumbotron">
