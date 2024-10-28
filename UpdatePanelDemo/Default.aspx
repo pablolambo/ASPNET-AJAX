@@ -25,6 +25,21 @@
         </Triggers>
     </asp:UpdatePanel>
 
+    <!-- ZADANIE 3: Third UpdatePanel -->
+    <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:DropDownList 
+                ID="DropDownList1" 
+                runat="server" 
+                DataTextField="CategoryName" 
+                DataValueField="CategoryID"
+                OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" 
+                AutoPostBack="True">
+            </asp:DropDownList>
+            <asp:Label ID="Label3" runat="server" Text="Wybierz kategorię, aby zobaczyć opis."></asp:Label>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+
     <div class="jumbotron">
         <h1>ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
