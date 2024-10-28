@@ -5,6 +5,9 @@
     <!-- ScriptManager -->
     <%-- It is already defined in Site.master file --%>
     <%-- <asp:ScriptManager ID="ScriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager> --%>
+         <form id="form1" runat="server">
+
+             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <!-- ZADANIE 1: UpdatePanel, UpdateMode="Conditional" -->
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
@@ -40,40 +43,61 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <%-- Zadanie 4: ValidatorCalloutExtender --%>
+     <asp:TextBox ID="tbF" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+            ControlToValidate="tbF" ErrorMessage="Pole nie może pozostać pusta!" 
+            ValidationGroup="vg1" Display="Dynamic"></asp:RequiredFieldValidator>
+        <ajaxToolkit:ValidatorCalloutExtender ID="vcalUserId" runat="server" 
+            TargetControlID="RequiredFieldValidator1"></ajaxToolkit:ValidatorCalloutExtender>
+        <asp:Button ID="Button3" runat="server" Text="Button" ValidationGroup="vg1"/>
+
+    <%--FilteredTextBoxExtender--%>
+    <div>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <ajaxToolkit:FilteredTextBoxExtender ID="FilteredTextBoxExtender1" runat="server" TargetControlID="TextBox1" FilterType="Numbers" ></ajaxToolkit:FilteredTextBoxExtender>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
+    <%-- PasswordStrength --%>
+     <div>
+        <asp:TextBox ID="Password" runat="server" />
+        <ajaxToolkit:PasswordStrength ID="ps1" runat="server" 
+            TargetControlID="Password" RequiresUpperAndLowerCaseCharacters="true" 
+            MinimumNumericCharacters="1" MinimumSymbolCharacters="1" 
+            PreferredPasswordLength="8" DisplayPosition="RightSide" 
+            StrengthIndicatorType="Text" />
+     </div>
+
+
+    <%-- PopupControlExtender --%>
+      <div>
+        Wyjazd: <asp:TextBox ID="tbDeparture" runat="server" />
+        Przyjazd: <asp:TextBox ID="tbReturn" runat="server" />
     </div>
+    <asp:Panel ID="pnlCalendar" runat="server">
+      <asp:UpdatePanel ID="up1" runat="server">
+        <ContentTemplate>
+          <asp:Calendar ID="c1" runat="server" />
+        </ContentTemplate>
+      </asp:UpdatePanel>
+    </asp:Panel>
+
+    <ajaxToolkit:PopupControlExtender ID="pce1" runat="server"
+      TargetControlID="tbDeparture" PopupControlID="pnlCalendar" Position="Bottom" />
+    <ajaxToolkit:PopupControlExtender ID="pce2" runat="server"
+      TargetControlID="tbReturn" PopupControlID="pnlCalendar" Position="Bottom" />
+
+
+
+    <div>
+      <asp:TextBox ID="Name" runat="server" />
+      <asp:RequiredFieldValidator ID="rfv1" ControlToValidate="Name" Text="*" InitialValue="&lt;Twoje ImiÄ™&gt;" Display="Dynamic" runat="server" />
+      <asp:RequiredFieldValidator ID="rfv2" ControlToValidate="Name" Text="*" Display="Dynamic" runat="server" />
+      <br /><asp:Button ID="btn" runat="server" Text="Submit" OnClick="btn_Click" /><br />
+      <asp:Label ID="lbl" runat="server" />
+    </div>
+    <ajaxToolkit:TextBoxWatermarkExtender ID="tbwe" runat="server" TargetControlID="Name" WatermarkText="&lt;Your Name&gt;" />
+
+    </form>
+
 </asp:Content>

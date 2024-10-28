@@ -16,8 +16,8 @@
 
 </head>
 <body>
-    <form runat="server">
-        <asp:ScriptManager runat="server" EnablePartialRendering="true">
+<%--    <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
@@ -80,6 +80,6 @@
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
         </div>
-    </form>
+    </form>--%>
 </body>
 </html>

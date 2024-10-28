@@ -55,6 +55,11 @@ public partial class _Default : Page
         }
     }
 
+    protected void btn_Click(object sender, EventArgs e)
+    {
+        lbl.Text = HttpUtility.HtmlEncode(Name.Text);
+    }
+
     // Obsługa zdarzenia zmiany wyboru w DropDownList - wyświetla opis kategorii
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
     {
